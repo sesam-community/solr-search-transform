@@ -71,7 +71,7 @@ def search():
             if "payload" in entity:
                 doc["payload"] = entity["payload"]
                 
-            yield json.dumps(doc)
+            yield json.dumps(doc).encode("utf-8")
         yield b"]"
 
     return Response(response=perform_search(), status=200, mimetype='application/json')
